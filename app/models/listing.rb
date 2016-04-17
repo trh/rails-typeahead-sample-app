@@ -5,6 +5,6 @@ class Listing < ActiveRecord::Base
   end
 
   def self.name_search(query)
-    return Listing.where("name like LOWER(?) ", "%#{query.downcase}%")
+    return Listing.where("LOWER(name) like ? ", "%#{query.downcase}%")
   end
 end
